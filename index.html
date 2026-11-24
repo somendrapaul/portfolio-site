@@ -1456,7 +1456,7 @@
     </script>
     <script>
       (function(){
-        /* Saved enquiry form — sends answers via FormSubmit */
+        /* Saved enquiry form — sends answers via Web3Forms */
         var form = document.getElementById('savedEnquiryForm');
         if (!form) return;
         var errorEl = document.getElementById('savedEnquiryError');
@@ -1489,6 +1489,8 @@
           if (!details){ showError('Please tell me a little about your project.'); return; }
           showError('');
           var payload = {};
+          payload['access_key'] = 'edbdf952-f9d7-4562-8a53-7a602c710249';
+          payload['subject'] = 'New portfolio enquiry - ' + name;
           payload['Name'] = name;
           payload['Phone / WhatsApp'] = phone;
           payload['Email'] = email;
@@ -1496,18 +1498,16 @@
           payload['Print size'] = printSize;
           payload['Needed by'] = neededBy;
           payload['Project details'] = details;
-          payload['_subject'] = 'New portfolio enquiry - ' + name;
-          payload['_template'] = 'table';
-          payload['_captcha'] = 'false';
+          if (email){ payload['replyto'] = email; }
           if (submitBtn){ submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
-          fetch('https://formsubmit.co/ajax/b0e87e85ba7ee5411dc7d7191d1cebf4', {
+          fetch('https://api.web3forms.com/submit', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
             body: JSON.stringify(payload)
           }).then(function(res){
             return res.json();
           }).then(function(data){
-            if (data && String(data.success) === 'true'){
+            if (data && data.success === true){
               form.reset();
               showSuccess(true);
             } else {
