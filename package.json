@@ -1,0 +1,23 @@
+{
+  "name": "portfolio-site",
+  "version": "1.0.0",
+  "description": "Somendra Paul - Graphic Designer Portfolio",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/somendrapaul/portfolio-site.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/somendrapaul/portfolio-site/issues"
+  },
+  "homepage": "https://github.com/somendrapaul/portfolio-site#readme",
+  "dependencies": {
+    "@vercel/speed-insights": "^2.1.0"
+  }
+}
