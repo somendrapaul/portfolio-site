@@ -630,15 +630,18 @@
       .form-error{ display:none; margin:14px 0 0; padding:11px 13px; border-radius:12px; border:1px solid light-dark(var(--color-red-300), var(--color-red-800)); background:light-dark(var(--color-red-50), rgba(70,7,14,.35)); color:light-dark(var(--color-red-800), var(--color-red-200)); font-size:14px; line-height:20px; }
       .form-error.show{ display:block; }
       @media (max-width:700px){ .form-grid{ grid-template-columns:1fr; } .enquiry-card{ padding:20px; } .form-actions .btn{ flex-basis:100%; } }
-      /* ---------- Google Form — saved enquiry ---------- */
+      /* ---------- Saved enquiry — native liquid-glass form ---------- */
       .google-form-card{ margin-top:0; padding:24px; }
       .google-form-card h3{ margin:0 0 6px; }
-      .google-form-card .form-intro{ margin:0 0 16px; color:var(--muted-foreground); }
-      .gform-wrap{ border-radius:16px; overflow:hidden; border:1px solid var(--lg-edge, var(--border)); background:light-dark(rgba(255,255,255,.92), rgba(255,255,255,.96)); box-shadow:inset 0 1px 0 light-dark(rgba(255,255,255,.85), rgba(255,255,255,.14)); }
-      .gform-wrap iframe{ display:block; width:100%; height:860px; border:0; background:transparent; }
+      .google-form-card .form-intro{ margin:0 0 18px; color:var(--muted-foreground); }
       .google-form-card .form-actions{ margin-top:16px; }
       .google-form-card .form-actions .btn{ flex:1 1 200px; text-align:center; }
-      @media (max-width:700px){ .google-form-card{ padding:20px; } .gform-wrap iframe{ height:780px; } .google-form-card .form-actions .btn{ flex-basis:100%; } }
+      .google-form-card .saved-form-actions{ margin-top:18px; }
+      .google-form-card .saved-form-actions .btn{ flex:1 1 220px; }
+      .form-success{ display:none; margin:16px 0 0; padding:14px 16px; border-radius:14px; border:1px solid light-dark(var(--color-green-300), var(--color-green-800)); background:linear-gradient(145deg, light-dark(rgba(220,252,231,.92), rgba(0,60,30,.32)), light-dark(rgba(240,253,244,.72), rgba(0,40,20,.22))); color:light-dark(var(--color-green-900), var(--color-green-100)); font-size:15px; line-height:22px; font-weight:500; backdrop-filter:blur(14px) saturate(160%); -webkit-backdrop-filter:blur(14px) saturate(160%); box-shadow:inset 0 1px 0 light-dark(rgba(255,255,255,.85), rgba(255,255,255,.14)); }
+      .form-success.show{ display:block; }
+      .google-form-card .btn[disabled]{ opacity:.65; cursor:wait; transform:none; }
+      @media (max-width:700px){ .google-form-card{ padding:20px; } .google-form-card .form-actions .btn{ flex-basis:100%; } }
     </style>
     <style id="chat-assistant-style">
       /* ---------- Chat assistant — liquid glass ---------- */
@@ -1299,15 +1302,57 @@
           <div style="height:12px"></div>
           <div class="card google-form-card" id="savedEnquiry">
             <h3 class="text-title-2">Enquiry form — responses saved</h3>
-            <p class="form-intro text-subheadline-large">Prefer not to use WhatsApp? Fill in this form instead — name, phone / WhatsApp number, email (optional), design type, print size, needed-by date and project details. Every response is saved, so nothing gets lost.</p>
-            <div class="gform-wrap">
-              <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSczLY38U4rjy9vcxoakyrm8sF5smFO5YSafy7EE4uwhkgaUeA/viewform?embedded=true" title="Design enquiry form — Somendra Paul Studio" loading="lazy" referrerpolicy="no-referrer-when-downgrade">Loading enquiry form…</iframe>
-            </div>
+            <p class="form-intro text-subheadline-large">Prefer not to use WhatsApp? Fill in this form instead — every response is saved, so nothing gets lost.</p>
+            <form id="savedEnquiryForm" novalidate>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="gfName">Your name *</label>
+                  <input id="gfName" name="name" type="text" autocomplete="name" placeholder="e.g. Rahul Sharma" required />
+                </div>
+                <div class="field">
+                  <label for="gfPhone">Phone / WhatsApp number *</label>
+                  <input id="gfPhone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="e.g. 98XXXXXXXX" required />
+                </div>
+                <div class="field">
+                  <label for="gfEmail">Email <span>(optional)</span></label>
+                  <input id="gfEmail" name="email" type="email" autocomplete="email" placeholder="you@example.com" />
+                </div>
+                <div class="field">
+                  <label for="gfType">What type of design do you need? *</label>
+                  <select id="gfType" name="designType" required>
+                    <option value="" disabled selected>Select a design type</option>
+                    <option>Banner / Flex</option>
+                    <option>Poster</option>
+                    <option>Invitation Card</option>
+                    <option>Logo / Branding</option>
+                    <option>Menu</option>
+                    <option>Social Media Post</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="gfSize">Print size <span>(optional)</span></label>
+                  <input id="gfSize" name="printSize" type="text" placeholder="e.g. 6 × 4 ft, A4, 5.5 × 8.5 in" />
+                </div>
+                <div class="field">
+                  <label for="gfDate">Needed by <span>(optional)</span></label>
+                  <input id="gfDate" name="neededBy" type="date" />
+                </div>
+                <div class="field full">
+                  <label for="gfDetails">Tell me about your project *</label>
+                  <textarea id="gfDetails" name="projectDetails" placeholder="Tell me about the design — your exact text / wording, occasion or business, colours you like, and anything else I should know." required></textarea>
+                </div>
+              </div>
+              <p class="form-error" id="savedEnquiryError" role="alert"></p>
+              <p class="form-success" id="savedEnquirySuccess" role="status">Thanks — your enquiry is saved. I&rsquo;ll get back to you on WhatsApp.</p>
+              <div class="form-actions saved-form-actions">
+                <button class="btn primary" type="submit" id="savedEnquirySubmit">Save my enquiry</button>
+              </div>
+            </form>
             <div class="form-actions">
-              <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSczLY38U4rjy9vcxoakyrm8sF5smFO5YSafy7EE4uwhkgaUeA/viewform" target="_blank" rel="noopener">Open form in a new tab ↗</a>
+              <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSczLY38U4rjy9vcxoakyrm8sF5smFO5YSafy7EE4uwhkgaUeA/viewform" target="_blank" rel="noopener">Open form in a new tab ↗</a>
               <a class="btn wa" href="https://wa.me/917209733998?text=Hello%20Somendra%2C%20I%20saw%20your%20portfolio%20and%20I%27d%20like%20to%20enquire%20about%20a%20design." target="_blank" rel="noopener"><svg data-icon="message-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" focusable="false" aria-hidden="true"><path d="M12 1.63C15.68 1.63 18.65 2.75 20.72 4.64C22.78 6.53 23.88 9.15 23.88 12C23.88 14.85 22.78 17.47 20.72 19.36C18.65 21.25 15.68 22.38 12 22.38C10 22.38 8.2 22.04 6.65 21.43C5.39 22.34 3.81 22.96 1.87 23.22C1.5 23.28 1.13 23.08 0.97 22.75C0.8 22.41 0.87 22 1.13 21.74C1.8 21.08 2.21 20.17 2.21 19.16C2.21 18.71 2.12 18.28 1.97 17.87C0.76 16.19 0.13 14.16 0.13 12C0.13 9.15 1.22 6.53 3.28 4.64C5.35 2.75 8.32 1.63 12 1.63ZM12 3.38C8.68 3.38 6.15 4.38 4.47 5.93C2.78 7.47 1.88 9.61 1.88 12C1.88 13.86 2.42 15.55 3.45 16.94C3.49 17 3.53 17.06 3.56 17.13C3.81 17.76 3.96 18.44 3.96 19.16C3.96 19.82 3.84 20.45 3.62 21.03C4.56 20.71 5.33 20.28 5.96 19.75C6.22 19.54 6.57 19.49 6.88 19.63C8.29 20.26 10 20.63 12 20.63C15.32 20.63 17.85 19.62 19.53 18.07C21.22 16.53 22.13 14.39 22.13 12C22.13 9.61 21.22 7.47 19.53 5.93C17.85 4.38 15.32 3.38 12 3.38Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"/></svg> WhatsApp instead</a>
             </div>
-            <p class="form-note text-footnote">If the form above doesn&rsquo;t load, use the &ldquo;Open form in a new tab&rdquo; button — it&rsquo;s the same form.</p>
           </div>
           <div style="height:12px"></div>
           <div class="links">
@@ -1526,6 +1571,66 @@
             showEnquiryError('Copy is not available in this browser — use the WhatsApp button instead.');
           }
         });
+      })();
+    </script>
+    <script>
+      (function(){
+        /* Saved enquiry form — sends answers to the Google Form in the background */
+        var form = document.getElementById('savedEnquiryForm');
+        if (!form) return;
+        var errorEl = document.getElementById('savedEnquiryError');
+        var successEl = document.getElementById('savedEnquirySuccess');
+        var submitBtn = document.getElementById('savedEnquirySubmit');
+        var submitLabel = submitBtn ? submitBtn.textContent : '';
+        function v(id){ var el = document.getElementById(id); return el ? (el.value || '').trim() : ''; }
+        function showError(msg){
+          if (!errorEl) return;
+          errorEl.textContent = msg;
+          errorEl.classList.toggle('show', !!msg);
+        }
+        function showSuccess(show){
+          if (!successEl) return;
+          successEl.classList.toggle('show', !!show);
+        }
+        form.addEventListener('submit', function(e){
+          e.preventDefault();
+          showSuccess(false);
+          var name = v('gfName');
+          var phone = v('gfPhone');
+          var email = v('gfEmail');
+          var designType = v('gfType');
+          var printSize = v('gfSize');
+          var neededBy = v('gfDate');
+          var details = v('gfDetails');
+          if (!name){ showError('Please add your name so I know who I am speaking with.'); return; }
+          if (!phone){ showError('Please add your phone / WhatsApp number so I can reply.'); return; }
+          if (!designType){ showError('Please choose the type of design you need.'); return; }
+          if (!details){ showError('Please tell me a little about your project.'); return; }
+          showError('');
+          var params = new URLSearchParams();
+          params.set('entry.5da151e7', name);
+          params.set('entry.4f0a2060', phone);
+          params.set('entry.4aa72eff', email);
+          params.set('entry.732e9cce', designType);
+          params.set('entry.41e99c08', printSize);
+          params.set('entry.712df0e0', neededBy);
+          params.set('entry.261c9dbc', details);
+          if (submitBtn){ submitBtn.disabled = true; submitBtn.textContent = 'Saving…'; }
+          fetch('https://docs.google.com/forms/d/e/1FAIpQLSczLY38U4rjy9vcxoakyrm8sF5smFO5YSafy7EE4uwhkgaUeA/formResponse', {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: params.toString()
+          }).then(function(){
+            form.reset();
+            showSuccess(true);
+          }).catch(function(){
+            showError('Your enquiry could not be sent just now — please try again, or use WhatsApp instead.');
+          }).then(function(){
+            if (submitBtn){ submitBtn.disabled = false; submitBtn.textContent = submitLabel; }
+          });
+        });
+        form.addEventListener('input', function(){ showSuccess(false); });
       })();
     </script>
     <script>
