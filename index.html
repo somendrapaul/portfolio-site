@@ -1247,58 +1247,6 @@
             <a class="btn" href="https://somendrapaul.framer.ai" target="_blank" rel="noopener">Start with my portfolio ↗</a>
             <a class="btn wa" href="https://wa.me/917209733998?text=Hello%20Somendra%2C%20I%20saw%20your%20portfolio%20and%20I%27d%20like%20to%20enquire%20about%20a%20design." target="_blank" rel="noopener"><svg data-icon="message-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" focusable="false" aria-hidden="true"><path d="M12 1.63C15.68 1.63 18.65 2.75 20.72 4.64C22.78 6.53 23.88 9.15 23.88 12C23.88 14.85 22.78 17.47 20.72 19.36C18.65 21.25 15.68 22.38 12 22.38C10 22.38 8.2 22.04 6.65 21.43C5.39 22.34 3.81 22.96 1.87 23.22C1.5 23.28 1.13 23.08 0.97 22.75C0.8 22.41 0.87 22 1.13 21.74C1.8 21.08 2.21 20.17 2.21 19.16C2.21 18.71 2.12 18.28 1.97 17.87C0.76 16.19 0.13 14.16 0.13 12C0.13 9.15 1.22 6.53 3.28 4.64C5.35 2.75 8.32 1.63 12 1.63ZM12 3.38C8.68 3.38 6.15 4.38 4.47 5.93C2.78 7.47 1.88 9.61 1.88 12C1.88 13.86 2.42 15.55 3.45 16.94C3.49 17 3.53 17.06 3.56 17.13C3.81 17.76 3.96 18.44 3.96 19.16C3.96 19.82 3.84 20.45 3.62 21.03C4.56 20.71 5.33 20.28 5.96 19.75C6.22 19.54 6.57 19.49 6.88 19.63C8.29 20.26 10 20.63 12 20.63C15.32 20.63 17.85 19.62 19.53 18.07C21.22 16.53 22.13 14.39 22.13 12C22.13 9.61 21.22 7.47 19.53 5.93C17.85 4.38 15.32 3.38 12 3.38Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"/></svg> Chat on WhatsApp</a>
           </div>
-          <div class="card enquiry-card" id="enquiry">
-            <h3 class="text-title-2">Send an enquiry</h3>
-            <p class="form-intro text-subheadline-large">Fill this in and tap send — it opens WhatsApp with your details ready, so I get everything in one message.</p>
-            <form id="enquiryForm" novalidate>
-              <div class="form-grid">
-                <div class="field">
-                  <label for="efName">Your name *</label>
-                  <input id="efName" name="name" type="text" autocomplete="name" placeholder="e.g. Rahul Sharma" required />
-                </div>
-                <div class="field">
-                  <label for="efPhone">Phone / WhatsApp number *</label>
-                  <input id="efPhone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="e.g. 98XXXXXXXX" required />
-                </div>
-                <div class="field">
-                  <label for="efEmail">Email <span>(optional)</span></label>
-                  <input id="efEmail" name="email" type="email" autocomplete="email" placeholder="you@example.com" />
-                </div>
-                <div class="field">
-                  <label for="efService">What do you need?</label>
-                  <select id="efService" name="service">
-                    <option>Banner / Flex / Shop Board</option>
-                    <option>Logo &amp; Branding</option>
-                    <option>Invitation / Festive Design</option>
-                    <option>Wedding Card / Invitation</option>
-                    <option>Menu / Bill / Brochure / Print</option>
-                    <option>Poster / Flyer / Handbill</option>
-                    <option>Social Media Post</option>
-                    <option>Other</option>
-                  </select>
-                </div>
-                <div class="field">
-                  <label for="efSize">Size / dimensions <span>(if print)</span></label>
-                  <input id="efSize" name="size" type="text" placeholder="e.g. 6 × 4 ft, A4, 5.5 × 8.5 in" />
-                </div>
-                <div class="field">
-                  <label for="efDate">Needed by <span>(optional)</span></label>
-                  <input id="efDate" name="date" type="date" />
-                </div>
-                <div class="field full">
-                  <label for="efDetails">Project details *</label>
-                  <textarea id="efDetails" name="details" placeholder="Tell me about the design — your exact text / wording, occasion or business, colours you like, and anything else I should know." required></textarea>
-                </div>
-              </div>
-              <p class="form-error" id="enquiryError" role="alert"></p>
-              <div class="form-actions">
-                <button class="btn wa" type="submit" id="enquiryWhatsApp"><svg data-icon="message-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" focusable="false" aria-hidden="true"><path d="M12 1.63C15.68 1.63 18.65 2.75 20.72 4.64C22.78 6.53 23.88 9.15 23.88 12C23.88 14.85 22.78 17.47 20.72 19.36C18.65 21.25 15.68 22.38 12 22.38C10 22.38 8.2 22.04 6.65 21.43C5.39 22.34 3.81 22.96 1.87 23.22C1.5 23.28 1.13 23.08 0.97 22.75C0.8 22.41 0.87 22 1.13 21.74C1.8 21.08 2.21 20.17 2.21 19.16C2.21 18.71 2.12 18.28 1.97 17.87C0.76 16.19 0.13 14.16 0.13 12C0.13 9.15 1.22 6.53 3.28 4.64C5.35 2.75 8.32 1.63 12 1.63ZM12 3.38C8.68 3.38 6.15 4.38 4.47 5.93C2.78 7.47 1.88 9.61 1.88 12C1.88 13.86 2.42 15.55 3.45 16.94C3.49 17 3.53 17.06 3.56 17.13C3.81 17.76 3.96 18.44 3.96 19.16C3.96 19.82 3.84 20.45 3.62 21.03C4.56 20.71 5.33 20.28 5.96 19.75C6.22 19.54 6.57 19.49 6.88 19.63C8.29 20.26 10 20.63 12 20.63C15.32 20.63 17.85 19.62 19.53 18.07C21.22 16.53 22.13 14.39 22.13 12C22.13 9.61 21.22 7.47 19.53 5.93C17.85 4.38 15.32 3.38 12 3.38Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"/></svg> Send enquiry on WhatsApp</button>
-                <button class="btn" type="button" id="enquiryCopy">Copy enquiry text</button>
-              </div>
-              <p class="form-note text-footnote" id="enquiryNote">No account needed. WhatsApp opens with the message filled in — just press send there.</p>
-              <p class="form-note text-footnote">Want your enquiry saved instead? Use the <a href="#savedEnquiry" style="color:var(--primary);font-weight:600">saved enquiry form below</a>.</p>
-            </form>
-          </div>
           <div style="height:12px"></div>
           <div class="card google-form-card" id="savedEnquiry">
             <h3 class="text-title-2">Enquiry form — responses saved</h3>
@@ -1350,14 +1298,12 @@
               </div>
             </form>
             <div class="form-actions">
-              <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSczLY38U4rjy9vcxoakyrm8sF5smFO5YSafy7EE4uwhkgaUeA/viewform" target="_blank" rel="noopener">Open form in a new tab ↗</a>
               <a class="btn wa" href="https://wa.me/917209733998?text=Hello%20Somendra%2C%20I%20saw%20your%20portfolio%20and%20I%27d%20like%20to%20enquire%20about%20a%20design." target="_blank" rel="noopener"><svg data-icon="message-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" focusable="false" aria-hidden="true"><path d="M12 1.63C15.68 1.63 18.65 2.75 20.72 4.64C22.78 6.53 23.88 9.15 23.88 12C23.88 14.85 22.78 17.47 20.72 19.36C18.65 21.25 15.68 22.38 12 22.38C10 22.38 8.2 22.04 6.65 21.43C5.39 22.34 3.81 22.96 1.87 23.22C1.5 23.28 1.13 23.08 0.97 22.75C0.8 22.41 0.87 22 1.13 21.74C1.8 21.08 2.21 20.17 2.21 19.16C2.21 18.71 2.12 18.28 1.97 17.87C0.76 16.19 0.13 14.16 0.13 12C0.13 9.15 1.22 6.53 3.28 4.64C5.35 2.75 8.32 1.63 12 1.63ZM12 3.38C8.68 3.38 6.15 4.38 4.47 5.93C2.78 7.47 1.88 9.61 1.88 12C1.88 13.86 2.42 15.55 3.45 16.94C3.49 17 3.53 17.06 3.56 17.13C3.81 17.76 3.96 18.44 3.96 19.16C3.96 19.82 3.84 20.45 3.62 21.03C4.56 20.71 5.33 20.28 5.96 19.75C6.22 19.54 6.57 19.49 6.88 19.63C8.29 20.26 10 20.63 12 20.63C15.32 20.63 17.85 19.62 19.53 18.07C21.22 16.53 22.13 14.39 22.13 12C22.13 9.61 21.22 7.47 19.53 5.93C17.85 4.38 15.32 3.38 12 3.38Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"/></svg> WhatsApp instead</a>
             </div>
           </div>
           <div style="height:12px"></div>
           <div class="links">
             <a class="card linkcard" href="https://wa.me/917209733998?text=Hello%20Somendra%2C%20I%20saw%20your%20portfolio%20and%20I%27d%20like%20to%20enquire%20about%20a%20design." target="_blank" rel="noopener"><div><strong>WhatsApp — Enquiry</strong><span>+91 72097 33998 · tap to chat</span></div><span aria-hidden="true">↗</span></a>
-            <a class="card linkcard" href="https://docs.google.com/forms/d/e/1FAIpQLSczLY38U4rjy9vcxoakyrm8sF5smFO5YSafy7EE4uwhkgaUeA/viewform" target="_blank" rel="noopener"><div><strong>Enquiry Form — Google Forms</strong><span>Saved responses · name, design type, size &amp; date</span></div><span aria-hidden="true">↗</span></a>
             <a class="card linkcard" href="https://somendrapaul.framer.ai" target="_blank" rel="noopener"><div><strong>Portfolio — Framer</strong><span>somendrapaul.framer.ai · my previous site</span></div><span aria-hidden="true">↗</span></a>
             <a class="card linkcard" href="https://somendrapaul.wixstudio.io/resume" target="_blank" rel="noopener"><div><strong>Resume — Wix Studio</strong><span>somendrapaul.wixstudio.io/resume</span></div><span aria-hidden="true">↗</span></a>
           </div>
@@ -1506,76 +1452,11 @@
           window.scrollTo({ top:0, behavior: reduce ? 'auto' : 'smooth' });
         });
 
-        /* Enquiry form — builds a ready-to-send message, no data is stored on this page */
-        var enquiryForm = document.getElementById('enquiryForm');
-        var enquiryError = document.getElementById('enquiryError');
-        var enquiryCopyBtn = document.getElementById('enquiryCopy');
-        var enquiryNote = document.getElementById('enquiryNote');
-        function enquiryValues(){
-          function v(id){ var el = document.getElementById(id); return el ? (el.value || '').trim() : ''; }
-          return {
-            name: v('efName'),
-            phone: v('efPhone'),
-            email: v('efEmail'),
-            service: v('efService'),
-            size: v('efSize'),
-            date: v('efDate'),
-            details: v('efDetails')
-          };
-        }
-        function validateEnquiry(vals){
-          if (!vals.name) return 'Please add your name so I know who I am speaking with.';
-          if (!vals.phone) return 'Please add your phone / WhatsApp number so I can reply.';
-          if (!vals.details) return 'Please add a few details about the design you need.';
-          return '';
-        }
-        function buildEnquiryMessage(vals){
-          var lines = [];
-          lines.push('Hello Somendra, I saw your portfolio and I would like to enquire about a design.');
-          lines.push('');
-          lines.push('Name: ' + vals.name);
-          lines.push('Phone / WhatsApp: ' + vals.phone);
-          if (vals.email) lines.push('Email: ' + vals.email);
-          if (vals.service) lines.push('Design needed: ' + vals.service);
-          if (vals.size) lines.push('Size: ' + vals.size);
-          if (vals.date) lines.push('Needed by: ' + vals.date);
-          lines.push('');
-          lines.push('Project details:');
-          lines.push(vals.details);
-          return lines.join('\n');
-        }
-        function showEnquiryError(msg){
-          if (!enquiryError) return;
-          enquiryError.textContent = msg;
-          enquiryError.classList.toggle('show', !!msg);
-        }
-        if (enquiryForm) enquiryForm.addEventListener('submit', function(e){
-          e.preventDefault();
-          var vals = enquiryValues();
-          var err = validateEnquiry(vals);
-          showEnquiryError(err);
-          if (err) return;
-          var text = encodeURIComponent(buildEnquiryMessage(vals));
-          window.open('https://wa.me/917209733998?text=' + text, '_blank', 'noopener');
-        });
-        if (enquiryCopyBtn) enquiryCopyBtn.addEventListener('click', function(){
-          var vals = enquiryValues();
-          var err = validateEnquiry(vals);
-          showEnquiryError(err);
-          if (err) return;
-          var msg = buildEnquiryMessage(vals);
-          function done(){ if (enquiryNote) enquiryNote.textContent = 'Enquiry text copied — you can paste it into WhatsApp, email or any message.'; }
-          if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(msg).then(done).catch(function(){ showEnquiryError('Copy did not work in this browser — use the WhatsApp button instead.'); });
-          } else {
-            showEnquiryError('Copy is not available in this browser — use the WhatsApp button instead.');
-          }
-        });
       })();
     </script>
     <script>
       (function(){
-        /* Saved enquiry form — sends answers to the Google Form in the background */
+        /* Saved enquiry form — sends answers via FormSubmit */
         var form = document.getElementById('savedEnquiryForm');
         if (!form) return;
         var errorEl = document.getElementById('savedEnquiryError');
@@ -1607,25 +1488,33 @@
           if (!designType){ showError('Please choose the type of design you need.'); return; }
           if (!details){ showError('Please tell me a little about your project.'); return; }
           showError('');
-          var params = new URLSearchParams();
-          params.set('entry.5da151e7', name);
-          params.set('entry.4f0a2060', phone);
-          params.set('entry.4aa72eff', email);
-          params.set('entry.732e9cce', designType);
-          params.set('entry.41e99c08', printSize);
-          params.set('entry.712df0e0', neededBy);
-          params.set('entry.261c9dbc', details);
-          if (submitBtn){ submitBtn.disabled = true; submitBtn.textContent = 'Saving…'; }
-          fetch('https://docs.google.com/forms/d/e/1FAIpQLSczLY38U4rjy9vcxoakyrm8sF5smFO5YSafy7EE4uwhkgaUeA/formResponse', {
+          var payload = {};
+          payload['Name'] = name;
+          payload['Phone / WhatsApp'] = phone;
+          payload['Email'] = email;
+          payload['Design type'] = designType;
+          payload['Print size'] = printSize;
+          payload['Needed by'] = neededBy;
+          payload['Project details'] = details;
+          payload['_subject'] = 'New portfolio enquiry - ' + name;
+          payload['_template'] = 'table';
+          payload['_captcha'] = 'false';
+          if (submitBtn){ submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
+          fetch('https://formsubmit.co/ajax/b0e87e85ba7ee5411dc7d7191d1cebf4', {
             method: 'POST',
-            mode: 'no-cors',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: params.toString()
-          }).then(function(){
-            form.reset();
-            showSuccess(true);
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify(payload)
+          }).then(function(res){
+            return res.json();
+          }).then(function(data){
+            if (data && String(data.success) === 'true'){
+              form.reset();
+              showSuccess(true);
+            } else {
+              showError('Something went wrong sending your enquiry — please try WhatsApp instead.');
+            }
           }).catch(function(){
-            showError('Your enquiry could not be sent just now — please try again, or use WhatsApp instead.');
+            showError('Something went wrong sending your enquiry — please try WhatsApp instead.');
           }).then(function(){
             if (submitBtn){ submitBtn.disabled = false; submitBtn.textContent = submitLabel; }
           });
